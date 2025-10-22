@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Elektronik Jonshop - Our Product</title>
+
+  <!-- Bootstrap dan Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* ======== PERBAIKAN OVERLAP NAVBAR ======== */
+    body {
+      padding-top: 100px;
+      background-color: #f8f9fa;
+    }
+    @media (max-width: 991.98px) {
+      body { padding-top: 130px; }
+    }
+
+    /* ======== SECTION OUR PRODUCT ======== */
+    #category {
+      padding: 60px 0;
+      background-image: url('img/download (4).jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    #category::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    #category h2 {
+      color: white;
+      font-weight: 700;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      margin-bottom: 40px;
+    }
+
+    /* ======== CARD PRODUK (Glass Effect) ======== */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(132, 130, 130, 0.253);
+      backdrop-filter: blur(5px);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      padding: 10px;
+    }
+
+    .card-title { color: #ffffff !important; }
+    .card-text {
+  color: #ffffff !important;
+  font-weight: 400;
+  opacity: 0.9;
+}
+    .text-danger { color: #20c997 !important; }
+
+    /* ======== NAVBAR CUSTOM ======== */
+    .navbar {
+      box-shadow: 0 3px 8px rgb(244, 242, 242);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-item {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-item i {
+      margin-right: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="img/anonymous.jpg" alt="Logo Toko" width="70" height="70" class="rounded-circle">
+        <span class="fw-bold ms-2 text-white">Toko Elektronik Jonshop</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index4.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index3.html">Tentang Kami</a></li>
+
+          <!-- DROPDOWN KONTAK -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="kontakDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kontak
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="kontakDropdown">
+              <li><a class="dropdown-item" href="https://www.instagram.com/j.nathang" target="_blank"><i class="fab fa-instagram text-danger"></i> Instagram</a></li>
+              <li><a class="dropdown-item" href="https://wa.me/081365893939" target="_blank"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></li>
+              <li><a class="dropdown-item" href="https://www.tiktok.com/@gogogg45?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok text-dark"></i> TikTok</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="index6.html">My Profil</a></li>
+          <li class="nav-item"><a class="nav-link" href="index5.html">Our Product</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== OUR PRODUCT SECTION ======== -->
+  <section id="category">
+    <div class="container">
+      <h2 class="text-center display-5">Our Product</h2>
+
+      <!-- FILTER & SEARCH -->
+      <div class="row mb-4 justify-content-center">
+        <div class="col-md-4 mb-3">
+          <label for="category-filter" class="form-label fw-bold">Filter Kategori:</label>
+          <select id="category-filter" class="form-select">
+            <option value="all">Semua Kategori</option>
+            <option value="pc">PC / Laptop</option>
+            <option value="Hp">Gadget & HP</option>
+            <option value="Peralatan dapur">Peralatan Dapur</option>
+            <option value="Music">Musik</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="product-search" class="form-label fw-bold">Cari Produk:</label>
+          <input type="text" id="product-search" class="form-control" placeholder="Masukkan nama produk...">
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- PRODUK LIST -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="product-list">
+
+        <!-- PRODUK 1 -->
+        
+         <div class="col product-item" data-category="pc" data-name="Laptop Gaming LOQ 15">
+                    <div class="card h-100 shadow-sm">
+                        <img src="img/download (31).jpg" class="card-img-top" alt="Laptop LOQ" style="height: 200px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-primary">Laptop Gaming LOQ 15</h5>
+                            <p class="card-text text-muted">Core i7, RAM 16GB, RTX 4050 8GB.</p>
+                            <h4 class="text-danger fw-bold mb-3">Rp 18.500.000</h4>
+                            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Laptop%20LOQ%2015%20.%20Apakah%20masih%20tersedia?"
+                                target="_blank" class="btn btn-success w-100">
+                                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                            </a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Kategori: PC / Laptop</small>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            <div class="col product-item" data-category="pc" data-name="Laptop Victus">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (32).jpg" class="card-img-top" alt="Laptop Victus" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Laptop Gaming Victus 15</h5>
+                        <p class="card-text text-muted">Core i7, RAM 32GB, RTX 4050 6GB.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 20.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Laptop Victus.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: PC / Laptop</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="pc" data-name="Laptop Rog Strix G16">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (13).jpg" class="card-img-top" alt="Laptop Rog Strix G16" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Laptop Gaming Rog Strix G16</h5>
+                        <p class="card-text text-muted">Core i7, RAM 16GB, RTX 4060 6GB.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 20.000.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Laptop Rog Strix G16.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: PC / Laptop</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="pc" data-name="laptop Acer Nitro 16">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (7).jpg" class="card-img-top" alt="Laptop Acer Nitro 16" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Laptop Gaming Nitro 16</h5>
+                        <p class="card-text text-muted">Ryzen 9 X5900, RAM 32GB, RTX 4060 6GB.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 18.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Laptop%20Acer Nitro 16.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: PC / Laptop</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="pc" data-name="MacBook Pro M3">
+                <div class="card h-100 shadow-sm">
+                     <img src="img/macbook m3 pro.jpg" class="card-img-top" alt="Laptop MacBook Pro M3" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">MacBook Pro M3</h5>
+                         <p class="card-text text-muted">Chip M3 Max, RAM 36GB, SSD 1TB.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 35.750.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20MacBook Pro M3.%20Apakah%20masih%20tersedia?"
+                            target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+<div class="col product-item" data-category="pc" data-name="Dell XPS 13 OLED">
+    <div class="card h-100 shadow-sm">
+        <img src="img/dell xps13.jpg" class="card-img-top" alt="Laptop Dell XPS 13" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-primary">Dell XPS 13 OLED</h5>
+            <p class="card-text text-muted">Core i7, RAM 16GB, SSD 512GB, Touchscreen.</p>
+            <h4 class="text-danger fw-bold mb-3">Rp 22.150.000</h4>
+            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Dell XPS 13.%20Apakah%20masih%20tersedia?"
+                target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+<div class="col product-item" data-category="pc" data-name="Asus Vivobook Pro 14X">
+    <div class="card h-100 shadow-sm">
+        <img src="img/vivobook pro 14X.jpg" class="card-img-top" alt="Laptop Asus Vivobook Pro" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-primary">Asus Vivobook Pro 14X</h5>
+            <p class="card-text text-muted">Ryzen 7, RAM 16GB, RTX 3050.</p>
+            <h4 class="text-danger fw-bold mb-3">Rp 16.200.000</h4>
+            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Asus Vivobook Pro 14X.%20Apakah%20masih%20tersedia?"
+                target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+<div class="col product-item" data-category="pc" data-name="MSI Titan GT77">
+    <div class="card h-100 shadow-sm">
+        <img src="img/msi titan gt77.jpg" class="card-img-top" alt="Laptop Gaming MSI Titan GT77" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-primary">MSI Titan GT77</h5>
+            <p class="card-text text-muted">Core i9, RAM 64GB, RTX 4090 16GB.</p>
+            <h4 class="text-danger fw-bold mb-3">Rp 65.000.000</h4>
+            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20MSI Titan GT77.%20Apakah%20masih%20tersedia?"
+                target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+<div class="col product-item" data-category="pc" data-name="ThinkPad X1 Carbon">
+    <div class="card h-100 shadow-sm">
+        <img src="img/thinkpad.jpg" class="card-img-top" alt="Laptop Lenovo ThinkPad X1 Carbon" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-primary">ThinkPad X1 Carbon</h5>
+            <p class="card-text text-muted">Core i5, RAM 8GB, SSD 256GB, Ultra-light.</p>
+            <h4 class="text-danger fw-bold mb-3">Rp 14.500.000</h4>
+            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20ThinkPad X1 Carbon.%20Apakah%20masih%20tersedia?"
+                target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+<div class="col product-item" data-category="pc" data-name="HP Pavilion Aero 13">
+    <div class="card h-100 shadow-sm">
+        <img src="img/pavilion aero.jpg" class="card-img-top" alt="Laptop HP Pavilion Aero 13" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-primary">HP Pavilion Aero 13</h5>
+            <p class="card-text text-muted">Ryzen 5, RAM 8GB, SSD 512GB, Layar 2.5K.</p>
+            <h4 class="text-danger fw-bold mb-3">Rp 10.999.000</h4>
+            <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20HP Pavilion Aero 13.%20Apakah%20masih%20tersedia?"
+                target="_blank" class="btn btn-success w-100">
+                <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Kategori: PC / Laptop</small>
+        </div>
+    </div>
+</div>
+
+            <div class="col product-item" data-category="Hp" data-name="Vivo X200 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (34).jpg" class="card-img-top" alt="Vivo X200 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Vivo X200 Pro</h5>
+                        <p class="card-text text-muted">Layar 144Hz, kamera 64MP, baterai 5000mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 18.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Vivo X200 Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Hp" data-name="Iphone 17 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (33).jpg" class="card-img-top" alt="Iphone 17 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Iphone 17 Pro</h5>
+                        <p class="card-text text-muted">Layar 120hz, Kamera 108MP, Baterai 4565mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 26.999.999</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Iphone 17 Pro%20.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Hp" data-name="Rog 9 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (5).jpg" class="card-img-top" alt="Rog 9 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Rog 9 Pro</h5>
+                        <p class="card-text text-muted">Layar 240hz, Kamera 54MP, Baterai 5500mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 10.999.999</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Rog 9 Pro%20.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Hp" data-name="Poco X7 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (6).jpg" class="card-img-top" alt="Poco X7 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Poco X7 Pro</h5>
+                        <p class="card-text text-muted">Layar 120hz, Kamera 64MP, Baterai 5500mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 8.700.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20 Poco X7 Pro%20.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name="Samsung Galaxy S25 Ultra">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/samsung s25.jpg" class="card-img-top" alt="Samsung Galaxy S25 Ultra" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Galaxy S25 Ultra</h5>
+                        <p class="card-text text-muted">Snapdragon Gen 4, Kamera 200MP, Baterai 5000mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 24.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Galaxy S25 Ultra.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name="Xiaomi 15 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/xiaomi 15 pro.jpg" class="card-img-top" alt="Xiaomi 15 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Xiaomi 15 Pro</h5>
+                        <p class="card-text text-muted">Chipset terbaru, Fast Charging 120W, Layar AMOLED.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 12.800.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Xiaomi 15 Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name="Oppo Find X8 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/oppo.jpg" class="card-img-top" alt="Oppo Find X8 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Oppo Find X8 Pro</h5>
+                        <p class="card-text text-muted">Kamera Hasselblad, RAM 16GB, Baterai 5000mAh.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 17.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Oppo Find X8 Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name="Realme GT 6">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/realme gt6.jpg" class="card-img-top" alt="Realme GT 6" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Realme GT 6</h5>
+                        <p class="card-text text-muted">Layar Super AMOLED, RAM 12GB, Desain Futuristik.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 7.999.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Realme GT 6.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name="Google Pixel 9 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/goggle pixel 9 pro.jpg" class="card-img-top" alt="Google Pixel 9 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Google Pixel 9 Pro</h5>
+                        <p class="card-text text-muted">Chip Tensor G4, Pure Android, Fotografi AI Terbaik.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 19.900.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Google Pixel 9 Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Hp" data-name=" OnePlus 13 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/oneplus 13pro.jpg" class="card-img-top" alt="OnePlus 13 Pro" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">OnePlus 13 Pro</h5>
+                        <p class="card-text text-muted">Layar LTPO, RAM 16GB, Warp Charge 100W.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 14.250.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20OnePlus 13 Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Gadget & HP</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Oven">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (8).jpg" class="card-img-top" alt="Oven" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Oven Elektrik 30L</h5>
+                        <p class="card-text text-muted">1200W, 6 mode, Hemat daya.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 1.300.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Oven%20Elektrik%2030L%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Mixer Tesla">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (38).jpg" class="card-img-top" alt="Mixer Tesla" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Mixer ProChef 5L</h5>
+                        <p class="card-text text-muted">5 kecepatan, stainless steel bowl, daya 350W.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 999.999</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Mixer ProChef 5L.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Kompor Listrik">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (9).jpg" class="card-img-top" alt="Kompor listrik" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Kompor Listrik Induksi</h5>
+                        <p class="card-text text-muted">3 mode, Panas hingga 350°C, daya 350W.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 2.000.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Kompor%20Listrik%20Induksi%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Kulkas Sharp">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (35).jpg" class="card-img-top" alt="Kulkas Sharp" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Kulkas Smart Inverter 2 Pintu</h5>
+                        <p class="card-text text-muted">Kapasitas 300L, Hemat Energi, Anti Bunga Es.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 9.700.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Kulkas%20Sharp%20Inverter.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Air Fryer Digital 4L">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/air freyer.jpg" class="card-img-top" alt="Air Fryer Digital 4L" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Air Fryer Digital 4L</h5>
+                        <p class="card-text text-muted">4 Liter, 8 Preset Menu, Tanpa Minyak, Daya 800W.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 850.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Air Fryer Digital 4L.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="RIce Cooker Smart 1.8L">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/rice cooker.jpg" class="card-img-top" alt="Rice Cooker Smart 1.8L" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Rice Cooker Smart 1.8L</h5>
+                        <p class="card-text text-muted">Kapasitas 1.8L, Panci Anti Lengket, Kontrol Digital.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 650.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Rice Cooker Smart 1.8L.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Blender Kaca Premium">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/blender.jpg" class="card-img-top" alt="Blender Kaca Premium" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Blender Kaca Premium 1.5L</h5>
+                        <p class="card-text text-muted">1.5 Liter Kaca Tebal, 3 Kecepatan, Pisau Baja Tahan Karat.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 525.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Blender Kaca Premium 1.5L.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Dispenser Galon Bawah">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/dispenser.jpg" class="card-img-top" alt="Dispenser Galon Bawah" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Dispenser Galon Bawah</h5>
+                        <p class="card-text text-muted">Hot, Normal, Cold, Galon Bawah, Hemat Listrik.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 1.850.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Dispenser Galon Bawah.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Mesin Cuci 2 Tabung 9Kg">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/mesin cuci.jpg" class="card-img-top" alt="Mesin Cuci 2 Tabung 9Kg" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Mesin Cuci 2 Tabung 9Kg</h5>
+                        <p class="card-text text-muted">Kapasitas 9Kg, Dual Power, Anti Karat.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 2.100.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Mesin Cuci 2 Tabung 9Kg.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Peralatan dapur" data-name="Set Panci Anti Lengket 5 Pcs">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/5 pcs panci.jpg" class="card-img-top" alt="Set Panci Anti Lengket 5 Pcs" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Set Panci Anti Lengket 5 Pcs</h5>
+                        <p class="card-text text-muted">Teflon Berkualitas, PFOA Free, Tahan Gores.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 750.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Set Panci Anti Lengket 5 Pcs.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: Peralatan Dapur</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Music" data-name="speaker BMB">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (37).jpg" class="card-img-top" alt="Speaker BMB" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Speaker BMB PRO5</h5>
+                        <p class="card-text text-muted">Bass kuat, tahan air IPX7, daya 80W.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 8.450.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Speaker BMB%20Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Music" data-name="Airpods">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (11).jpg" class="card-img-top" alt="Airpods" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Air Pods Iphone Pro 3</h5>
+                        <p class="card-text text-muted">Tahan hingga 24 jam, 500mAh, IP78.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 800.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Airpods Iphone Pro 3.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Music</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Music" data-name="Microphone">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (12).jpg" class="card-img-top" alt="Microphone" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Microphone Kondensor Rog</h5>
+                        <p class="card-text text-muted">Noise canceling, SSS Grade Sound, IP78.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 2.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Microphone Kondensor Rog.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col product-item" data-category="Music" data-name="Headphone Iphone 7 Pro">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/download (36).jpg" class="card-img-top" alt="Headphone Iphone 7 PRO" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Headphone Iphone 7 PRo Max</h5>
+                        <p class="card-text text-muted">Noise Cancelling, Baterai 50 Jam, Audio Immersive.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 5.100.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Headphone Iphone%207 Pro Max.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="Smart TV LED 55 Inch 4K">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/tv.jpg" class="card-img-top" alt="Smart TV LED 55 Inch 4K" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Smart TV LED 55 Inch 4K</h5>
+                        <p class="card-text text-muted">Resolusi 4K UHD, Smart OS, Built-in Netflix/Youtube.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 7.500.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Smart TV LED 55 Inch 4K.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="Soundbar Dolby Atmos">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/soundbar.jpg" class="card-img-top" alt="Soundbar Dolby Atmos" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Soundbar Dolby Atmos 5.1</h5>
+                        <p class="card-text text-muted">5.1 Channel, Wireless Subwoofer, Audio Dolby Atmos.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 4.200.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Soundbar Dolby Atmos 5.1.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="Speaker Bluetooth Portable">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/speaker portable.jpg" class="card-img-top" alt="Speaker Bluetooth Portable" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Speaker Bluetooth Portable X10</h5>
+                        <p class="card-text text-muted">Baterai 10 Jam, Bass Punchy, Tali Gantung.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 450.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Speaker Bluetooth Portable X10.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="Proyektor Mini Full HD">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/proyektor mini.jpg" class="card-img-top" alt="Proyektor Mini Full HD" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Proyektor Mini Full HD</h5>
+                        <p class="card-text text-muted">Resolusi 1080P, Kecerahan 3000 Lumen, Port HDMI.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 1.100.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Proyektor Mini Full HD.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="TV LED 32 Inch HD">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/tv 32 inci.jpg" class="card-img-top" alt="TV LED 32 Inch HD" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">TV LED 32 Inch HD</h5>
+                        <p class="card-text text-muted">Resolusi HD, Garansi Resmi 3 Tahun, HDMI & USB.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 1.899.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20TV LED 32 Inch HD.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col product-item" data-category="Music" data-name="Earbuds TWS Noise Cancelling">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/airbuds.jpg" class="card-img-top" alt="Earbuds TWS Noise Cancelling" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary">Earbuds TWS ANC Pro</h5>
+                        <p class="card-text text-muted">Active Noise Cancelling, Baterai 30 Jam, Bluetooth 5.3.</p>
+                        <h4 class="text-danger fw-bold mb-3">Rp 950.000</h4>
+                        <a href="https://wa.me/081365893939?text=Halo,%20saya%20tertarik%20membeli%20Earbuds TWS ANC Pro.%20Apakah%20masih%20tersedia?"
+                           target="_blank" class="btn btn-success w-100">
+                            <i class="fab fa-whatsapp me-2"></i> Beli via WhatsApp
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Kategori: TV & Musik</small>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-success text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">
+            &copy; 2025 Toko Elektronik JONSHOP. Dibuat oleh
+            <a href="https://www.instagram.com/j.nathang" target="_blank" class="text-white text-decoration-none fw-bold">
+                <i class="fab fa-instagram me-1"></i> J.nathang
+            </a>
+        </p>
+    </div>
+</footer>
+
+  <!-- ======== SCRIPT BOOTSTRAP & FILTER ======== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryFilter = document.getElementById('category-filter');
+      const productSearch = document.getElementById('product-search');
+      const productItems = document.querySelectorAll('.product-item');
+
+      function applyFilters() {
+        const selectedCategory = categoryFilter.value;
+        const searchTerm = productSearch.value.toLowerCase().trim();
+
+        productItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          const name = item.getAttribute('data-name').toLowerCase();
+
+          const matchCategory = (selectedCategory === 'all' || category === selectedCategory);
+          const matchSearch = name.includes(searchTerm);
+
+          if (matchCategory && matchSearch) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      }
+
+      categoryFilter.addEventListener('change', applyFilters);
+      productSearch.addEventListener('keyup', applyFilters);
+    });
+  </script>
+</body>
+</html>

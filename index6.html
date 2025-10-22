@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profil - Portofolio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* PERBAIKAN UTAMA: MENAMBAH PADDING UNTUK MENGHINDARI NAVBAR FIXED */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding-top: 70px; /* Tambahkan padding-top setidaknya 70px (sesuai tinggi navbar) */
+            padding-bottom: 0; /* Pastikan padding bawah body tidak mengganggu */
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hapus margin-top pada container agar ia mulai tepat setelah padding body */
+        .container-wrapper {
+             max-width: 900px;
+            margin: 0 auto; /* Ganti margin atas/bawah agar konten tepat di bawah navbar */
+            padding: 20px;
+            background-color: #f4f4f9; /* Latar belakang body */
+        }
+
+        .profile-card {
+            padding: 0; /* Hapus padding container asli */
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden; /* Penting untuk menjaga border-radius */
+            margin-bottom: 40px; /* Tambah jarak di bawah kartu */
+        }
+        
+        /* Ubah .container di atas menjadi wrapper, dan terapkan gaya pada kartu di dalamnya */
+
+
+        /* Hapus properti .container yang lama dan gunakan .profile-card */
+        /* .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        } */
+        
+        /* Header Profil */
+        .profile-header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #4CAF50; /* Warna hijau menarik */
+            color: white;
+            /* Hapus border-radius di sini karena sudah ada di .profile-card */
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 1.5px;
+            padding-top: 50px;
+        }
+
+        .profile-header p {
+            margin-top: 5px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Detail Informasi */
+        .info-section {
+            padding: 15px 30px; /* Tambahkan padding samping agar tidak terlalu mepet */
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        /* ... (CSS lainnya tidak diubah) ... */
+
+        /* Link Portofolio */
+        .portfolio-link a {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .portfolio-link a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="img/anonymous.jpg" alt="Logo Toko" width="70" height="70" class="rounded-circle">
+            <span class="fw-bold">Toko Elektronik Jonshop</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index4.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index3.html">Tentang Kami</a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kontak</a>
+                    <ul class="dropdown-menu">
+                       <li><a class="dropdown-item" href="https://www.instagram.com/j.nathang" target="_blank"><i class="fab fa-instagram text-danger"></i> Instagram</a></li>
+              <li><a class="dropdown-item" href="https://wa.me/081365893939" target="_blank"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></li>
+              <li><a class="dropdown-item" href="https://www.tiktok.com/@gogogg45?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok text-dark"></i> TikTok</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index6.html">My Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index5.html">Our Product</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-wrapper">
+    <div class="profile-card"> 
+
+        <header class="profile-header">
+            <div style="margin-top: -80px; margin-bottom: 20px;">
+                <img src="URL_FOTO_ANDA.jpg" alt="Foto Profil" class="rounded-circle" width="100" height="100" style="border: 5px solid white;">
+            </div>
+
+            <h1>My Profil</h1>
+            <p>"About Me"</p>
+        </header>
+
+        <section class="info-section">
+            <h2>📝 Data Diri</h2>
+            <ul class="info-list">
+                <li>
+                    <strong>Nama</strong>
+                    <span>: Jonathan</span>
+                </li>
+                <li>
+                    <strong>Kelas/Jurusan</strong>
+                    <span>:  X / RPL</span>
+                </li>
+                <li>
+                    <strong>Sekolah/Kampus</strong>
+                    <span>: Sekolah Permata Harapan</span>
+                </li>
+                <li>
+                    <strong>Email</strong>
+                    <span>: joshark123098@gmail.com</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="info-section">
+            <h2>⭐ Keahlian & Minat</h2>
+            <ul class="info-list">
+                <li>
+                    <strong>Keahlian Utama</strong>
+                    <span>: Web Development (HTML/CSS), Desain Grafis</span>
+                </li>
+                <li>
+                    <strong>Proyek Favorit</strong>
+                    <span>: Onlineshop, Blog, Databases</span>
+                </li>
+                <li>
+                    <strong>Minat Lain</strong>
+                    <span>: Basket, Photography, Gym</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="info-section portfolio-link">
+            <h2>🔗 My Web / Portofolio</h2>
+            <p>Lihat karya dan proyek saya lebih lanjut di:</p>
+            <a href="index4.html" target="_blank">Kunjungi Portofolio Saya 🚀</a>
+        </section>
+
+        <footer style="padding: 20px;">
+            <p style="text-align: center; font-size: 0.8em; color: #777; margin-top: 0;">
+            
+            </p>
+        </footer>
+    </div>
+</div>
+
+<footer class="bg-success text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">
+            &copy; 2025 Toko Elektronik JONSHOP. Dibuat oleh
+            <a href="https://www.instagram.com/j.nathang" target="_blank" class="text-white text-decoration-none fw-bold">
+                <i class="fab fa-instagram me-1"></i> J.nathang
+            </a>
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+</body>
+</html>

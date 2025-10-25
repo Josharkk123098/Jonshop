@@ -5,61 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profil - Portofolio</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-          crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- Google Fonts untuk estetika modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* PERBAIKAN UTAMA: MENAMBAH PADDING UNTUK MENGHINDARI NAVBAR FIXED */
+        /* Reset dan Font Global */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding-top: 70px; /* Tambahkan padding-top setidaknya 70px (sesuai tinggi navbar) */
-            padding-bottom: 0; /* Pastikan padding bawah body tidak mengganggu */
-            background-color: #f4f4f9;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
-            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 70px; /* Untuk navbar fixed */
         }
 
-        /* Hapus margin-top pada container agar ia mulai tepat setelah padding body */
+        /* Navbar Modern dengan Glassmorphism */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: #ffd700 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            color: #333;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        /* Container Wrapper */
         .container-wrapper {
-             max-width: 900px;
-            margin: 0 auto; /* Ganti margin atas/bawah agar konten tepat di bawah navbar */
-            padding: 20px;
-            background-color: #f4f4f9; /* Latar belakang body */
-        }
-
-        .profile-card {
-            padding: 0; /* Hapus padding container asli */
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden; /* Penting untuk menjaga border-radius */
-            margin-bottom: 40px; /* Tambah jarak di bawah kartu */
-        }
-        
-        /* Ubah .container di atas menjadi wrapper, dan terapkan gaya pada kartu di dalamnya */
-
-
-        /* Hapus properti .container yang lama dan gunakan .profile-card */
-        /* .container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        } */
-        
-        /* Header Profil */
+        }
+
+        /* Profile Card dengan Glassmorphism */
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Profile Header */
         .profile-header {
             text-align: center;
             padding: 30px 0;
-            background-color: #4CAF50; /* Warna hijau menarik */
-            color: white;
-            /* Hapus border-radius di sini karena sudah ada di .profile-card */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: #fff;
             margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .profile-header h1 {
@@ -67,6 +124,8 @@
             font-size: 3em;
             letter-spacing: 1.5px;
             padding-top: 50px;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .profile-header p {
@@ -75,153 +134,279 @@
             opacity: 0.9;
         }
 
-        /* Detail Informasi */
+        /* Info Section */
         .info-section {
-            padding: 15px 30px; /* Tambahkan padding samping agar tidak terlalu mepet */
-            border-bottom: 1px dashed #ddd;
+            padding: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
-        /* ... (CSS lainnya tidak diubah) ... */
 
-        /* Link Portofolio */
+        .info-section h2 {
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .info-list li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .info-list li strong {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .info-list li span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Portfolio Link */
         .portfolio-link a {
             display: inline-block;
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .portfolio-link a:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #ffed4e, #ffd700);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Footer Modern */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+            .profile-header h1 {
+                font-size: 2.5em;
+            }
+            .info-section {
+                padding: 20px;
+            }
+            .info-list li {
+                padding: 10px 15px;
+            }
+        }
+
+        /* Efek Scroll Smooth */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="img/anonymous.jpg" alt="Logo Toko" width="70" height="70" class="rounded-circle">
-            <span class="fw-bold">Toko Elektronik Jonshop</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index3.html">Tentang Kami</a>
-                </li>
-    
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kontak</a>
-                    <ul class="dropdown-menu">
-                       <li><a class="dropdown-item" href="https://www.instagram.com/j.nathang" target="_blank"><i class="fab fa-instagram text-danger"></i> Instagram</a></li>
-              <li><a class="dropdown-item" href="https://wa.me/081365893939" target="_blank"><i class="fab fa-whatsapp text-success"></i> WhatsApp</a></li>
-              <li><a class="dropdown-item" href="https://www.tiktok.com/@gogogg45?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok text-dark"></i> TikTok</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index6.html">My Profil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index5.html">Our Product</a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="img/anonymous.jpg" alt="Logo Toko" width="60" height="60" class="rounded-circle me-3">
+                <span class="fw-bold">JonShop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index3.html">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kontak
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://www.instagram.com/j.nathang" target="_blank"><i class="fab fa-instagram text-danger me-2"></i> Instagram</a></li>
+                            <li><a class="dropdown-item" href="https://wa.me/081365893939" target="_blank"><i class="fab fa-whatsapp text-success me-2"></i> WhatsApp</a></li>
+                            <li><a class="dropdown-item" href="https://www.tiktok.com/@gogogg45?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok text-dark me-2"></i> TikTok</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index6.html">My Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index5.html">Our Product</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Wrapper -->
+    <div class="container-wrapper">
+        <div class="profile-card">
+            <header class="profile-header">
+                <div style="margin-top: -80px; margin-bottom: 20px;">
+                    <img src="URL_FOTO_ANDA.jpg" alt="Foto Profil" class="rounded-circle" width="100" height="100">
+                </div>
+                <h1>My Profil</h1>
+                <p>"About Me"</p>
+            </header>
+
+            <section class="info-section">
+                <h2>📝 Data Diri</h2>
+                <ul class="info-list" id="data-diri-list">
+                    <li>
+                        <strong>Nama</strong>
+                        <span>: Jonathan</span>
+                    </li>
+                    <li>
+                        <strong>Kelas/Jurusan</strong>
+                        <span>: X / RPL</span>
+                    </li>
+                    <li>
+                        <strong>Sekolah/Kampus</strong>
+                        <span>: Sekolah Permata Harapan</span>
+                    </li>
+                    <li>
+                        <strong>Email</strong>
+                        <span>: joshark123098@gmail.com</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2>⭐ Keahlian & Minat</h2>
+                <ul class="info-list" id="keahlian-minat-list">
+                    <li>
+                        <strong>Keahlian Utama</strong>
+                        <span>: Web Development (HTML/CSS), Desain Grafis</span>
+                    </li>
+                    <li>
+                        <strong>Proyek Favorit</strong>
+                        <span>: Onlineshop, Blog, Databases</span>
+                    </li>
+                    <li>
+                        <strong>Minat Lain</strong>
+                        <span>: Basket, Photography, Gym</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="info-section portfolio-link">
+                <h2>🔗 My Web / Portofolio</h2>
+                <p>Lihat karya dan proyek saya lebih lanjut di:</p>
+                <a href="index.html" target="_blank">Kunjungi Portofolio Saya 🚀</a>
+            </section>
+
+            <footer style="padding: 20px;">
+                <p style="text-align: center; font-size: 0.8em; color: rgba(255, 255, 255, 0.7); margin-top: 0;">
+                    <!-- Kosongkan atau tambahkan teks jika perlu -->
+                </p>
+            </footer>
         </div>
     </div>
-</nav>
 
-<div class="container-wrapper">
-    <div class="profile-card"> 
-
-        <header class="profile-header">
-            <div style="margin-top: -80px; margin-bottom: 20px;">
-                <img src="URL_FOTO_ANDA.jpg" alt="Foto Profil" class="rounded-circle" width="100" height="100" style="border: 5px solid white;">
-            </div>
-
-            <h1>My Profil</h1>
-            <p>"About Me"</p>
-        </header>
-
-        <section class="info-section">
-            <h2>📝 Data Diri</h2>
-            <ul class="info-list">
-                <li>
-                    <strong>Nama</strong>
-                    <span>: Jonathan</span>
-                </li>
-                <li>
-                    <strong>Kelas/Jurusan</strong>
-                    <span>:  X / RPL</span>
-                </li>
-                <li>
-                    <strong>Sekolah/Kampus</strong>
-                    <span>: Sekolah Permata Harapan</span>
-                </li>
-                <li>
-                    <strong>Email</strong>
-                    <span>: joshark123098@gmail.com</span>
-                </li>
-            </ul>
-        </section>
-
-        <section class="info-section">
-            <h2>⭐ Keahlian & Minat</h2>
-            <ul class="info-list">
-                <li>
-                    <strong>Keahlian Utama</strong>
-                    <span>: Web Development (HTML/CSS), Desain Grafis</span>
-                </li>
-                <li>
-                    <strong>Proyek Favorit</strong>
-                    <span>: Onlineshop, Blog, Databases</span>
-                </li>
-                <li>
-                    <strong>Minat Lain</strong>
-                    <span>: Basket, Photography, Gym</span>
-                </li>
-            </ul>
-        </section>
-
-        <section class="info-section portfolio-link">
-            <h2>🔗 My Web / Portofolio</h2>
-            <p>Lihat karya dan proyek saya lebih lanjut di:</p>
-            <a href="index.html" target="_blank">Kunjungi Portofolio Saya 🚀</a>
-        </section>
-
-        <footer style="padding: 20px;">
-            <p style="text-align: center; font-size: 0.8em; color: #777; margin-top: 0;">
-            
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="mb-0">
+                &copy; 2025 Toko Elektronik JONSHOP. Dibuat oleh
+                <a href="https://www.instagram.com/j.nathang" target="_blank" class="text-warning text-decoration-none fw-bold">
+                    <i class="fab fa-instagram me-1"></i> J.nathang
+                </a>
             </p>
-        </footer>
-    </div>
-</div>
+        </div>
+    </footer>
 
-<footer class="bg-success text-white text-center py-3">
-    <div class="container">
-        <p class="mb-0">
-            &copy; 2025 Toko Elektronik JONSHOP. Dibuat oleh
-            <a href="https://www.instagram.com/j.nathang" target="_blank" class="text-white text-decoration-none fw-bold">
-                <i class="fab fa-instagram me-1"></i> J.nathang
-            </a>
-        </p>
-    </div>
-</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    <!-- JavaScript untuk Navbar Active State dan Animasi Semua Info List -->
+    <script>
+        const navItems = document.querySelectorAll('.nav-link');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.navbar-nav .nav-link').forEach(el => {
+                    el.classList.remove('active');
+                });
+                if (!item.classList.contains('dropdown-toggle')) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
 
+        // Animasi untuk Semua Info List (Data Diri dan Keahlian & Minat)
+        document.addEventListener('DOMContentLoaded', () => {
+            const allListItems = document.querySelectorAll('.info-list li');
+
+            const isElementInViewport = (el) => {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            };
+
+            const animateItems = () => {
+                allListItems.forEach((item, index) => {
+                    if (isElementInViewport(item)) {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateX(0)';
+                        }, index * 200); // Staggered delay 200ms per item untuk semua
+                    }
+                });
+            };
+
+            allListItems.forEach(item => {
+                item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            });
+            
+            window.addEventListener('scroll', animateItems);
+            animateItems(); // Jalankan saat load
+        });
+    </script>
 
 </body>
 </html>
